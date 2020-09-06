@@ -1,18 +1,50 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <ItemsListComponent
+      :items="items"
+      :loading="loading"
+      @selectItem="onSelectItem"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { defineComponent, computed, onMounted } from "vue";
+import store from "@/store";
+import ItemsListComponent from "@/components/items/ItemsList.component.vue";
+import { ItemInterface } from "@/models/items/Item.interface.ts";
 
-export default defineComponent({
-  name: 'Home',
+const HomeView = {
+  name: "Home",
   components: {
-    HelloWorld,
+    ItemsListComponent,
   },
-});
+  setup() {
+    const items = computed(() => {
+      return store.state.items;
+    });
+
+    const loading = computed(() => {
+      return store.state.loading;
+    });
+
+    const onSelectItem = (item: ItemInterface) => {
+      store.dispatch("selectItem", {
+        id: item.id,
+        selected: !item.selected,
+      });
+    };
+
+    onMounted(() => {
+      store.dispatch("loadItems");
+    });
+
+    return {
+      items,
+      loading,
+      onSelectItem,
+    };
+  },
+};
+export default defineComponent(HomeView);
 </script>
