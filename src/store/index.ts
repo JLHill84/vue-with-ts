@@ -39,7 +39,7 @@ export default createStore({
 
       setTimeout(() => {
         console.log("set timeout");
-        apiClient.items.fetchItems((data: any) => {
+        apiClient.items.fetchItems().then((data: any) => {
           console.log("fetching");
           commit("loadedItems", data);
         });
