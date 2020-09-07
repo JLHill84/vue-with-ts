@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import { ItemInterface } from "@/models/items/Item.interface";
 import { ItemsStateInterface } from "@/models/store/ItemsState.interface";
+import apiClient from "@/api-client";
 
 const state: ItemsStateInterface = {
   loading: false,
@@ -36,25 +37,12 @@ export default createStore({
     loadItems({ commit, state }) {
       commit("loadingItems");
 
-      const mockItems: ItemInterface[] = [
-        {
-          id: 1,
-          name: "item 1",
-          selected: false,
-        },
-        {
-          id: 2,
-          name: "item 2 ",
-          selected: false,
-        },
-        {
-          id: 3,
-          name: "item 3",
-          selected: false,
-        },
-      ];
       setTimeout(() => {
-        commit("loadedItems", mockItems);
+        console.log("set timeout");
+        apiClient.items.fetchItems((data: any) => {
+          console.log("fetching");
+          commit("loadedItems", data);
+        });
       }, 1000);
     },
     selectItem(
