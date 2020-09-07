@@ -36,7 +36,9 @@ export default defineComponent({
     const availableLocales = computed(() => {
       return store.state.localesState.availableLocales;
     });
-    const onLocaleClicked = (localeInfo: LocaleInfoInterface) => {
+    // not sure why the TS type causes strange error
+    // const onLocaleClicked = (localeInfo: LocaleInfoInterface) => {
+    const onLocaleClicked = (localeInfo) => {
       store.dispatch(
         `${StoreModuleNames.localesState}/${MutationType.locales.selectLocale}`,
         localeInfo
