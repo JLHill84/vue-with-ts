@@ -10,7 +10,8 @@
 
 <script lang="ts">
 import { defineComponent, computed, onMounted } from "vue";
-import store from "@/store";
+import { store } from "@/store";
+import { MutationType, StoreModuleNames } from "@/models/store";
 import ItemsListComponent from "@/components/items/ItemsList.component.vue";
 import { ItemInterface } from "@/models/items/Item.interface.ts";
 
@@ -21,22 +22,27 @@ const HomeView = {
   },
   setup() {
     const items = computed(() => {
-      return store.state.items;
+      return store.state.itemsState.items;
     });
 
     const loading = computed(() => {
-      return store.state.loading;
+      return store.state.itemsState.loading;
     });
 
     const onSelectItem = (item: ItemInterface) => {
-      store.dispatch("selectItem", {
-        id: item.id,
-        selected: !item.selected,
-      });
+      store.dispatch(
+        `${StoreModuleNames.itemsState}/${MutationType.items.selectItem}`,
+        {
+          id: item.id,
+          selected: !item.selected,
+        }
+      );
     };
 
     onMounted(() => {
-      store.dispatch("loadItems");
+      store.dispatch(
+        `${StoreModuleNames.itemsState}/${MutationType.items.loadItems}`
+      );
     });
 
     return {
