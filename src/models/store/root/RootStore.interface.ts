@@ -1,4 +1,4 @@
-import { ItemsStateInterface } from "@/models/store";
+import { ItemsStateInterface, LocalesStateInterface } from "@/models/store";
 
 /**
  * @name RootStoreInterface
@@ -8,5 +8,6 @@ import { ItemsStateInterface } from "@/models/store";
 
 export interface RootStoreInterface {
   itemsState: ItemsStateInterface;
+  localesState: LocalesStateInterface;
   // additional domain-specific module interfaces we’ll be added here in the next book chapters
 }

@@ -12,6 +12,7 @@
     "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "vue": "^3.0.0-0",
+    "vue-i18n": "^9.0.0-alpha.13",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
@@ -19,6 +20,7 @@
     "@types/chai": "^4.2.11",
     "@types/mocha": "^5.2.4",
     "@types/sinon": "^9.0.5",
+    "@types/vue-i18n": "^7.0.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-unit-mocha": "~4.5.0",

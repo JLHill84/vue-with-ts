@@ -7,12 +7,14 @@ import {
 import { initialRootState } from "./initialState";
 // import each Vuex module
 import { itemsState } from "@/store/items";
+import { localesState } from "@/store/locales";
 // Vuex store options to build our modularized namespaced store
 const storeOptions: StoreOptions<RootStateInterface> = {
   state: initialRootState,
   modules: {
     itemsState,
-    // as you create additional modules, you'lla dd them here
+    localesState,
+    // as you create additional modules, you'll add them here
     // similar to the itemsState
   },
 };
