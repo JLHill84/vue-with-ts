@@ -10,10 +10,7 @@ if (process.env && process.env.VUE_APP_API_CLIENT) {
 let apiClient: ApiClientInterface;
 if (env === "live") {
   apiClient = apiLiveClient;
-  console.log("env: ", env);
 } else {
   apiClient = apiMockClient;
-  console.log("env: ", env);
 }
-console.log("apiClient: ", apiClient);
 export default apiClient;

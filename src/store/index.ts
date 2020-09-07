@@ -38,9 +38,7 @@ export default createStore({
       commit("loadingItems");
 
       setTimeout(() => {
-        console.log("set timeout");
         apiClient.items.fetchItems().then((data: any) => {
-          console.log("fetching");
           commit("loadedItems", data);
         });
       }, 1000);
