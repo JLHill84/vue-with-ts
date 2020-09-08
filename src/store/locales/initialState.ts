@@ -1,9 +1,11 @@
 import { LocalesStateInterface } from "@/models/store";
+
 /**
  * @name initialLocalesState
  * @description
  * The Locales state instance
  */
+
 export const initialLocalesState: LocalesStateInterface = {
   availableLocales: [
     {
@@ -16,13 +18,13 @@ export const initialLocalesState: LocalesStateInterface = {
       name: "Italy",
       locale: "it-IT",
       flag: "it",
-      selected: false,
+      selected: true,
     },
     {
       name: "Spain",
       locale: "es-ES",
       flag: "es",
-      selected: true,
+      selected: false,
     },
     {
       name: "France",

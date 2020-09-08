@@ -44,7 +44,7 @@ const data: LocalesDataInterface = getLocalesData();
 
 // create out vue-18n instance
 export const i18n = createI18n({
-  locale: "fr-FR",
+  locale: "it-IT",
   fallbackLocale: "en-US",
   messages: data.messages,
   datetimeFormats: data.datetimeFormats,
