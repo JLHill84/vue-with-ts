@@ -6,6 +6,7 @@
     <h2>
       {{ i18n.t("welcome") }}
     </h2>
+    <ThemeSelector />
     <LocaleSelector
       :availableLocales="availableLocales"
       @clicked="onLocaleClicked"
@@ -24,11 +25,13 @@ import { MutationType, StoreModuleNames } from "@/models/store";
 import { store } from "@/store";
 import { LocaleInfoInterface } from "@/models/localization/LocaleInfo.interface";
 import LocaleSelector from "@/components/locale-selector/LocaleSelector.component.vue";
+import ThemeSelector from "@/components/theme-selector/ThemeSelecor.component.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     LocaleSelector,
+    ThemeSelector,
   },
   setup() {
     const i18n = useI18n();
